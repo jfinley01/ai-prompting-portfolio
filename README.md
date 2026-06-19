@@ -12,6 +12,7 @@ This repo is designed as a coaching resource — each example shows not just *wh
 | [`examples/prompt-library.md`](examples/prompt-library.md) | Annotated prompt examples across 6 categories |
 | [`frameworks/prompt-evaluation.md`](frameworks/prompt-evaluation.md) | A repeatable rubric for judging prompt quality |
 | [`frameworks/the-five-levers.md`](frameworks/the-five-levers.md) | The five dimensions you can tune in any prompt |
+| [`prompt_grader.py`](prompt_grader.py) | Python tool that scores any prompt using the rubric |
 
 ---
 
@@ -41,7 +42,60 @@ One example in a prompt is worth ten lines of description. Whenever you want a s
 
 ---
 
+## Prompt Grader — try it yourself
+
+`prompt_grader.py` is a command-line tool that scores any prompt using the Five Levers framework. Paste in a prompt, and it returns a score out of 15 with a one-line explanation for each dimension and a top suggestion for improvement.
+
+**Example output:**
+
+ROLE: 1/3 — No role is defined for the model to adopt.
+
+TASK: 2/3 — Summarization is named but purpose, length, and scope are undefined.
+
+CONTEXT: 1/3 — No background information is given.
+
+FORMAT: 1/3 — No guidance on structure, length, tone, or exclusions.
+
+TONE: 1/3 — No tone guidance whatsoever is provided.
+TOTAL: 6/15
+
+VERDICT: Rewrite needed (below 7)
+
+TOP SUGGESTION: Specify the article, desired format, and audience — without these,
+
+the prompt cannot be acted on at all.
+
+The same task written as a strong prompt scores 14/15. That gap is what this tool is designed to make visible.
+
+### Setup
+
+You'll need Python 3 and an Anthropic API key.
+
+```bash
+# Create and activate a virtual environment
+python3 -m venv prompt-grader-env
+source prompt-grader-env/bin/activate
+
+# Install the Anthropic library
+pip install anthropic
+
+# Add your API key (replace with your actual key)
+echo 'export ANTHROPIC_API_KEY="sk-ant-your-key-here"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+### Running it
+
+```bash
+python3 prompt_grader.py
+```
+
+Paste any prompt at the input, press Enter twice, and get your score.
+
+---
+
 ## Background
 
 Built as a working reference for AI coaching engagements. Prompting is a skill, not a knack —
 it can be taught, practiced, and measured. This repo is a starting point for that work.
+
