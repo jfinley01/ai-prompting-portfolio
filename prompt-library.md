@@ -1,6 +1,6 @@
 # Prompt Library
 
-Annotated examples across six common use cases. Each entry shows a weak version, a strong version, and explains the difference.
+Annotated examples across twelve common use cases. Each entry shows a weak version, a strong version, and explains the difference.
 
 ---
 
@@ -159,6 +159,168 @@ After I say "debrief," step out of character and give me honest feedback on wher
 
 ---
 
+## 7. Feedback and critique
+
+### ❌ Weak prompt
+```
+Give me feedback on this presentation.
+```
+
+### ✅ Strong prompt
+```
+You are a communications coach reviewing a 10-minute executive presentation. The presenter is a first-time VP presenting to a board of directors for the first time.
+
+Review the slide deck below and give feedback in three tiers:
+- **Must fix before presenting** (2–3 items max): issues that would undermine credibility
+- **Worth improving if time allows** (3–5 items): things that would lift the quality noticeably
+- **Leave alone**: anything you'd be tempted to change but shouldn't — explain why
+
+Be specific. Reference the actual slide content, not generic presentation advice.
+Do not comment on visual design — that's handled separately.
+
+[SLIDE CONTENT HERE]
+```
+
+**Why this works:**
+Tiered feedback forces prioritization — the most common failure of AI feedback is treating everything as equally important. "Leave alone" is an underused instruction that prevents over-editing and builds the presenter's confidence. Excluding visual design keeps the feedback focused and avoids scope creep.
+
+---
+
+## 8. Decision support
+
+### ❌ Weak prompt
+```
+Should I take this job offer?
+```
+
+### ✅ Strong prompt
+```
+I need help thinking through a job decision, not a recommendation. Help me structure my thinking.
+
+Current role: Senior Marketing Manager at a 400-person SaaS company. Stable, good team, limited upward mobility.
+New offer: Head of Marketing at a 30-person startup. 20% salary increase, equity, but pre-Series B with real risk.
+Personal context: Two kids in middle school, mortgage, spouse works full-time. I can absorb some financial risk but not a lot.
+What matters most to me: career growth, stability, and meaningful work — roughly in that order.
+
+Do not tell me what to do. Instead:
+1. Identify the 3 questions I should be able to answer before deciding
+2. Point out any assumptions I seem to be making that I should pressure-test
+3. Name what I'd be giving up in each direction that I might be underweighting
+```
+
+**Why this works:**
+Asking an AI "should I do X?" produces a hedged non-answer. Asking it to structure your thinking produces something actually useful. The "do not tell me what to do" instruction is essential — it prevents the model from defaulting to false confidence. Naming personal context and priorities gives the model something real to work with.
+
+---
+
+## 9. Learning and explanation
+
+### ❌ Weak prompt
+```
+Explain machine learning to me.
+```
+
+### ✅ Strong prompt
+```
+Explain how machine learning models are trained, for someone who understands spreadsheets and basic statistics but has no programming background.
+
+Use one concrete analogy that isn't about teaching a child or training a dog — those are overused.
+Cover: what "training data" means, what the model is actually optimizing for, and why more data isn't always better.
+
+Keep it under 300 words. End with one question I should be able to answer if I understood this correctly.
+```
+
+**Why this works:**
+"Explain X to me" without an audience produces textbook output. The analogy constraint ("not the child/dog one") forces creativity and avoids clichés. Specifying what to cover prevents the model from front-loading irrelevant background. The closing question is a smart trick — it lets the reader self-check comprehension without needing a quiz.
+
+---
+
+## 10. Content creation
+
+### ❌ Weak prompt
+```
+Write a LinkedIn post about our product launch.
+```
+
+### ✅ Strong prompt
+```
+Write a LinkedIn post announcing the launch of a new AI-powered scheduling tool for healthcare clinics.
+
+Audience: clinic administrators and practice managers (not clinicians or patients).
+Tone: confident and direct, not hype-y. This audience is skeptical of vendor marketing.
+Length: 150–200 words. No hashtag spam — two relevant hashtags maximum.
+
+Structure:
+- Open with the problem, not the product
+- Introduce the product in one sentence in the middle
+- Close with a specific call to action (book a demo, not "learn more")
+
+Do not use the phrases "game-changer," "revolutionary," or "excited to announce."
+```
+
+**Why this works:**
+LinkedIn posts written without audience context default to generic enthusiasm that performs poorly. Leading with the problem (not the product) is a copywriting principle the model won't apply unless instructed. The banned phrases list prevents the most common AI content clichés. A specific CTA ("book a demo") outperforms vague ones in every channel.
+
+---
+
+## 11. Meeting and workshop design
+
+### ❌ Weak prompt
+```
+Help me plan a team meeting about our strategy.
+```
+
+### ✅ Strong prompt
+```
+Design a 90-minute working session for a leadership team of 8 people (VP level) to align on priorities for Q3.
+
+Context:
+- The team has not agreed on priorities in two previous meetings
+- The disagreement is partly about resources (who gets budget) and partly about strategic direction
+- One VP is known for dominating discussions; two others rarely speak up in groups
+
+Design the session so that:
+- All voices are heard, not just the loudest
+- The output is a ranked list of 3–5 priorities with owners assigned
+- We leave with a decision, not just more discussion
+
+Include: agenda with timing, facilitation notes for the tricky moments, and one technique for handling the dominant participant without embarrassing them.
+```
+
+**Why this works:**
+Meeting design prompts fail when they ignore the human dynamics in the room. Naming the specific dysfunction (one dominator, two quiet voices, two failed prior meetings) lets the model address the real problem. "A decision, not just more discussion" is an outcome instruction that changes the entire shape of the agenda.
+
+---
+
+## 12. Coaching and performance conversations
+
+### ❌ Weak prompt
+```
+Help me give feedback to an underperforming employee.
+```
+
+### ✅ Strong prompt
+```
+Help me prepare for a performance conversation with a direct report.
+
+Context:
+- She is a 3-year employee who was strong in her first two years but has missed three consecutive deadlines in Q2
+- I suspect the issue is personal (she mentioned family stress in passing) but I don't know for sure
+- She tends to shut down when she feels criticized — previous feedback has not landed well
+- My goal: understand what's going on, be honest about the impact, and agree on a path forward together
+
+Do not write a script. Instead, give me:
+1. The opening 2–3 sentences I should use to set the right tone
+2. The one question I should ask early and genuinely listen to before saying anything evaluative
+3. Two phrases to avoid and what to say instead
+4. How to close the conversation so we both leave with clarity, not anxiety
+```
+
+**Why this works:**
+"Help me give feedback" produces a generic feedback framework. This prompt names the specific person, history, and dynamic — so the output is actually usable in the room. Asking for phrases to avoid (and replacements) is more actionable than asking for "tips." The closing instruction addresses a gap most feedback advice ignores: how the conversation ends determines whether it sticks.
+
+---
+
 ## Quick reference: the most common prompt mistakes
 
 | Mistake | Fix |
@@ -169,3 +331,6 @@ After I say "debrief," step out of character and give me honest feedback on wher
 | Asking for "pros and cons" generically | Anchor to a specific situation and decision |
 | No example provided | Add one short example of the style you want |
 | Accepting the first output | Treat the first response as a draft; iterate with specific edits |
+| Asking "should I do X?" | Ask it to structure your thinking instead |
+| Treating all feedback as equal | Ask for tiered feedback (must fix / worth improving / leave alone) |
+| Ignoring human dynamics | Name the specific people and patterns in the room |
